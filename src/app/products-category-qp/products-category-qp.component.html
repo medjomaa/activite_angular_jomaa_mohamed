@@ -1,0 +1,11 @@
+<div class="container">
+    <div class="row">
+        <div  class="col-md-4" style="margin-bottom: 20px;" *ngFor="let product of listProducts">
+            <div *ngIf="isCategory(product.categoryId)">
+                <img [src]="product.image" [alt]="product.name" class="img-fluid h-50 w-75">
+                <h5>{{product.price}}</h5>
+                <h5>{{product.name}}</h5>
+            </div>
+        </div>
+    </div>
+</div>

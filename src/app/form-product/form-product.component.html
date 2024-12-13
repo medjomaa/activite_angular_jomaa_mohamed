@@ -1,0 +1,50 @@
+<div class="container">
+    <div class="row">
+        <h1>Ajouter un produit:</h1>
+        <form #formulaire="ngForm" (ngSubmit)="onSubmit(formulaire)" class="form-group">
+            <div class="form-group">
+                <label class="form-label">Nom du produit:</label>
+                <input type="text" class="form-control" name="nom" [(ngModel)]="model.name" #name="ngModel"
+                    placeholder="Nom du produit" required [minLength]="5" pattern="[a-zA-Z]*">
+                <div *ngIf="name.errors?.['required']">Nom du produit obligatoire</div>
+                <div *ngIf="name.errors?.['minLength']">Nom doit être supérieure ou égale à 5 lettres</div>
+                <div *ngIf="name.errors?.['pattern']">Format du nom du produit invalide</div>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Image du produit:</label>
+                <input type="text" name="image" class="form-control" [(ngModel)]="model.image" #image="ngModel"
+                    placeholder="Image du produit">
+            </div>
+            <div class="form-group">
+                <label class="form-label">Catégorie du produit:</label>
+                <input type="text" name="categorie" class="form-control" [(ngModel)]="model.categoryId" #categoryId="ngModel"
+                    placeholder="ID du catégorie du produit" required>
+                <div *ngIf="categoryId.errors?.['required']">Catégorie du produit obligatoire</div>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Description du produit:</label>
+                <input type="text" name="description" class="form-control" [(ngModel)]="model.description" #description="ngModel"
+                    placeholder="Description du produit">
+            </div>
+            <div class="form-group">
+                <label class="form-label">Prix du produit:</label>
+                <input type="text" name="prix" class="form-control" [(ngModel)]="model.price" #price="ngModel"
+                    placeholder="Prix du produit" required pattern="^|d+(|.|d+)?$">
+                <div *ngIf="price.errors?.['required']">Prix du produit obligatoire</div>
+                <div *ngIf="price.errors?.['pattern']">Format du prix du produit invalide</div>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Brand du produit:</label>
+                <input type="text" name="brand" class="form-control" [(ngModel)]="model.brand" #brand="ngModel"
+                    placeholder="Brand du produit">
+            </div>
+            <div class="form-group">
+                <label class="form-label">Promotion du produit:</label>
+                <input type="text" name="promotion" class="form-control" [(ngModel)]="model.promotion" #promotion="ngModel"
+                    placeholder="Promotion du produit" pattern="^(0|[1-9][0-9]?)$">
+                <div *ngIf="promotion.errors?.['pattern']">Promotion doit être inférieur ou égal à 100</div>
+            </div>
+            <button type="submit" class="btn btn-primary" (click)="addProduct(model.id)" [disabled]="formulaire.invalid">Enregistrer le produit</button>
+        </form>
+    </div>
+</div>

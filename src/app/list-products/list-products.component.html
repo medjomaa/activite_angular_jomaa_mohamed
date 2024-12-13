@@ -1,0 +1,10 @@
+<div class="container">
+    <div class="row">
+        <h1 class="container-fluid">Liste des produits</h1>
+        <div class="col-md-4" *ngFor="let produit of listProducts">
+            <app-card [id]="produit.id" [title]="produit.title" [image]="produit.image"
+                [description]="produit.description" [typeElement]="'product'">
+            </app-card>
+        </div>
+    </div>
+</div>

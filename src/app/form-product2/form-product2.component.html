@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="row">
+        <h1>Ajouter un produit:</h1>
+        <form [formGroup]="product_data" class="form-group">
+            <label for="nom" class="form-label">Nom du produit:</label>
+            <input type="text" id="nom" class="form-control" formControlName="name" name="nom" placeholder="Nom du produit">
+            <div *ngIf="product_data.get('name')?.errors?.['required']">Nom du produit obligatoire</div>
+            <div *ngIf="product_data.get('name')?.errors?.['minLength']">Nom doit être supérieure ou égale à 5 lettres</div>
+            <div *ngIf="product_data.get('name')?.errors?.['pattern']">Format du nom du produit invalide</div>
+            <label for="image" class="form-label">Image du produit:</label>
+            <input type="text" id="image" name="image" class="form-control" formControlName="image" placeholder="Image du produit">
+            <label for="categorie" class="form-label">Catégorie du produit:</label>
+            <input type="text" id="categorie" name="categorie" class="form-control" placeholder="ID du catégorie du produit" formControlName="categorie">
+            <div *ngIf="product_data.get('categorie')?.errors?.['required']">Catégorie du produit obligatoire</div>
+            <label for="description" class="form-label">Description du produit:</label>
+            <input type="text" id="description" name="description" class="form-control" placeholder="Description du produit" formControlName="description">
+            <label for="prix" class="form-label">Prix du produit:</label>
+            <input type="text" id="prix" name="prix" class="form-control" placeholder="Prix du produit" formControlName="price">
+            <div *ngIf="product_data.get('price')?.errors?.['required']">Prix du produit obligatoire</div>
+            <div *ngIf="product_data.get('price')?.errors?.['pattern']">Format du prix du produit invalide</div>
+                <label for="brand" class="form-label">Brand du produit:</label>
+                <input type="text" name="brand" class="form-control" placeholder="Brand du produit" id="brand" formControlName="brand">
+                <label for="promotion" class="form-label">Promotion du produit:</label>
+                <input type="text" id="promotion" name="promotion" class="form-control" placeholder="Promotion du produit" formControlName="promotion">
+                <div *ngIf="product_data.get('promotion')?.errors?.['pattern']">Promotion doit être inférieur ou égal à 100</div>
+            <button type="submit" class="btn btn-primary" (click)="addProduct(model.id)"
+                [disabled]="product_data.invalid">Enregistrer le produit</button>
+        </form>
+    </div>
+</div>

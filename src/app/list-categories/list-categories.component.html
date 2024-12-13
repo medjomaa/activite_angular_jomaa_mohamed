@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="row">
+    <h1 class="container-fluid">Bienvenue dans la page d'accueil</h1><br>
+    <h6 class="container-fluid">Rechercher par titre:</h6><br>
+    <input type="text" [(ngModel)]="titre" class="form-control" placeholder="Rechercher une catégorie..." />
+    <div  class="col-md-4" style="margin-bottom: 20px;" *ngFor="let categorie of categories |tab:titre">
+      <app-card [image]="categorie.image" [title]="categorie.title" 
+      [available]="categorie.available" [description]="categorie.description"
+       (add)="onAddToShortlist($event)"></app-card>
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>

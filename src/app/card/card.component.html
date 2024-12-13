@@ -1,0 +1,11 @@
+<div class="card">
+  <img [src]="image" [alt]="title | uppercase" class="card-img-top">
+  <div class="card-body">
+    <h3 class="card-title">{{ title | uppercase }}</h3>
+    <p class="card-text">
+      {{ typeElement === 'category' ? description : 'Prix : ' + description + ' €' }}
+    </p>
+    <button *ngIf="typeElement === 'category'" class="btn btn-success mt-2">Add {{ title }} to shortlist</button>
+    <button *ngIf="typeElement === 'product'" class="btn btn-primary mt-2">Add {{ title }} to cart</button>
+  </div>
+</div>

@@ -1,0 +1,72 @@
+<div *ngIf="isAdmin">
+    <nav ngClass="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">TWINStore</a>
+
+            <button class="navbar-toggler" type="button" data-bs- toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria- controls="navbarSupportedContent" aria-expanded="false"
+                aria- label="Toggle navigation">
+
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" routerLink="/home" routerLinkActive="active">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/product">Produits</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/apropos">A propos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/profile">Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/contact">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/addProduct">Ajouter un produit</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/addProduct2">Ajouter un produit 2</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+<div *ngIf="!isAdmin">
+    <nav ngClass="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">TWINStore</a>
+
+            <button class="navbar-toggler" type="button" data-bs- toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria- controls="navbarSupportedContent" aria-expanded="false"
+                aria- label="Toggle navigation">
+
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/home">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/produits">Produits</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/apropos">A propos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/profile">Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
