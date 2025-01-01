@@ -6,8 +6,12 @@
     <div  class="col-md-4" style="margin-bottom: 20px;" *ngFor="let categorie of categories |tab:titre">
       <app-card [image]="categorie.image" [title]="categorie.title" 
       [available]="categorie.available" [description]="categorie.description"
-       (add)="onAddToShortlist($event)"></app-card>
+       (add)="onAddToShortlist($event)">
+      </app-card>
+      <button (click)="deleteCategory(categorie)" class="btn btn-danger mt-2">Supprimer la catégorie</button>
+      <button (click)="getCategory(categorie.id)" [routerLink]="['/addCategory',categorie.id]" class="btn btn-warning">Modifier la catégorie</button>
     </div>
+    <button (click)="getListCategories()" class="btn btn-primary">Réafficher la liste des catégories</button>
   </div>
 </div>
 <router-outlet></router-outlet>

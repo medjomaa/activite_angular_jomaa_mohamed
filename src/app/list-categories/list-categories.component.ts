@@ -2,6 +2,7 @@ import { AfterViewInit, Component, QueryList, ViewChildren } from '@angular/core
 import { CategorieModule } from '../models/categorie/categorie.module';
 import { ShortlistModule } from '../models/shortlist/shortlist.module';
 import { CardComponent } from '../card/card.component';
+import { CategoryService } from '../category.service';
 
 @Component({
   selector: 'app-list-categories',
@@ -9,8 +10,9 @@ import { CardComponent } from '../card/card.component';
   styleUrl: './list-categories.component.css'
 })
 export class ListCategoriesComponent implements AfterViewInit{
-  
 
+  
+  constructor(private _service:CategoryService) {}
   categories: CategorieModule[] = [
     { "id": 1, "title": "Grand électroménager", "image": "/assets/images/categorie_electromenager.jpg", "description": "Electroménager de grands tiers", "available": true }, 
     { "id": 2, "title": "Petit électroménager", "image": "/assets/images/categorie_petit_electromenager.jpg", "description": "Electroménager de petits tiers", "available": true }, 
@@ -52,7 +54,17 @@ export class ListCategoriesComponent implements AfterViewInit{
     });
   }
   
-  
+  deleteCategory(category:CategorieModule){
+    this._service.deleteCategoryFromBackend(category).subscribe();
+  }
+  getListCategories(){
+    this._service.getListCategoriesFromBackend().subscribe(l=>{
+      this.categories=l;
+    });
+  }
+  getCategory(id: number) {
+    this._service.getCategoryById(id).subscribe();
+  }
 }
 
 

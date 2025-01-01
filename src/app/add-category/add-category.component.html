@@ -1,0 +1,52 @@
+<div class="container mt-5">
+    <h2>Add New Category</h2>
+    <form [formGroup]="categoryForm" (ngSubmit)="addCategory(categoryForm.value)">
+      <div class="mb-3">
+        <label for="title" class="form-label">Title</label>
+        <input type="text" id="title" class="form-control" formControlName="title" />
+      </div>
+  
+      <div class="mb-3">
+        <label for="image" class="form-label">Image URL</label>
+        <input type="text" id="image" class="form-control" formControlName="image" />
+      </div>
+  
+      <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+        <textarea id="description" class="form-control" formControlName="description"></textarea>
+      </div>
+  
+      <div class="mb-3">
+        <label for="available" class="form-label">Available</label>
+        <input type="checkbox" id="available" formControlName="available" />
+      </div>
+  
+      <button type="submit" class="btn btn-primary" [disabled]="categoryForm.invalid">Save</button>
+    </form>
+  </div>
+  <div class="container mt-5">
+    <h2>Update Category</h2>
+    <form [formGroup]="categoryForm" (ngSubmit)="updateCategory(categoryForm.value)">
+      <div class="mb-3">
+        <label for="title" class="form-label">Title</label>
+        <input type="text" id="title" class="form-control" formControlName="title" />
+      </div>
+  
+      <div class="mb-3">
+        <label for="image" class="form-label">Image URL</label>
+        <input type="text" id="image" class="form-control" formControlName="image" />
+      </div>
+  
+      <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+        <textarea id="description" class="form-control" formControlName="description"></textarea>
+      </div>
+  
+      <div class="mb-3">
+        <label for="available" class="form-label">Available</label>
+        <input type="checkbox" id="available" formControlName="available" />
+      </div>
+  
+      <button type="submit" class="btn btn-warning" [disabled]="categoryForm.invalid">Save</button>
+    </form>
+  </div>

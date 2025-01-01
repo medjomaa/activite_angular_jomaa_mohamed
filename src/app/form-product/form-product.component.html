@@ -44,7 +44,7 @@
                     placeholder="Promotion du produit" pattern="^(0|[1-9][0-9]?)$">
                 <div *ngIf="promotion.errors?.['pattern']">Promotion doit être inférieur ou égal à 100</div>
             </div>
-            <button type="submit" class="btn btn-primary" (click)="addProduct(model.id)" [disabled]="formulaire.invalid">Enregistrer le produit</button>
+            <button type="submit" class="btn btn-primary" (click)="addProduct(model)" [disabled]="formulaire.invalid">Enregistrer le produit</button>
         </form>
     </div>
 </div>

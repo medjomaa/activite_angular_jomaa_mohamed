@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ProductModule } from '../models/product/product.module';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ProductService } from '../product.service';
 
 @Component({
   selector: 'app-form-product2',
@@ -8,6 +9,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrl: './form-product2.component.css'
 })
 export class FormProduct2Component {
+  constructor(private _service:ProductService){}
   model:ProductModule={
     id: 0,
     name: '',
@@ -28,9 +30,7 @@ export class FormProduct2Component {
     brand:new FormControl(this.model.brand),
     promotion:new FormControl(this.model.promotion,[Validators.pattern("^(0|[1-9][0-9]?)$")])
   });
-  addProduct(i:number) {
-    this.listProducts[i-1].id++;
-    this.listProducts.push(this.model);
-    console.log("Produit ajouté");
+  addProduct(p:ProductModule) {
+    this._service.addProduct(p).subscribe();
   }
 }

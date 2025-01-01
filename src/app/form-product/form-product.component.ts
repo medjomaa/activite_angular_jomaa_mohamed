@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ProductModule } from '../models/product/product.module';
 import { NgForm } from '@angular/forms';
+import { ProductService } from '../product.service';
 
 @Component({
   selector: 'app-form-product',
@@ -8,6 +9,7 @@ import { NgForm } from '@angular/forms';
   styleUrl: './form-product.component.css'
 })
 export class FormProductComponent {
+  constructor(private _service:ProductService){}
   listProducts:ProductModule[]=[];
   model: ProductModule = {
     id: 0,
@@ -20,10 +22,8 @@ export class FormProductComponent {
     promotion: 0
   };
   
-  addProduct(i:number) {
-    this.listProducts[i-1].id++;
-    this.listProducts.push(this.model);
-    console.log("Produit ajouté");
+  addProduct(p:ProductModule) {
+    this._service.addProduct(p).subscribe();
   }
 onSubmit(_t5:NgForm){
     if(_t5.valid){

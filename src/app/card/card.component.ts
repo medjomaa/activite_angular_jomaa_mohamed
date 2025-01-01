@@ -1,5 +1,7 @@
 import { Component,EventEmitter,Input, Output } from '@angular/core';
 import { ShortlistModule } from '../models/shortlist/shortlist.module';
+import { CategoryService } from '../category.service';
+import { CategorieModule } from '../models/categorie/categorie.module';
 
 @Component({
   selector: 'app-card',

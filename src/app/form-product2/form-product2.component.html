@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row">
         <h1>Ajouter un produit:</h1>
-        <form [formGroup]="product_data" class="form-group">
+        <form [formGroup]="product_data" (ngSubmit)="addProduct(product_data.value)" class="form-group">
             <label for="nom" class="form-label">Nom du produit:</label>
             <input type="text" id="nom" class="form-control" formControlName="name" name="nom" placeholder="Nom du produit">
             <div *ngIf="product_data.get('name')?.errors?.['required']">Nom du produit obligatoire</div>
@@ -23,7 +23,7 @@
                 <label for="promotion" class="form-label">Promotion du produit:</label>
                 <input type="text" id="promotion" name="promotion" class="form-control" placeholder="Promotion du produit" formControlName="promotion">
                 <div *ngIf="product_data.get('promotion')?.errors?.['pattern']">Promotion doit être inférieur ou égal à 100</div>
-            <button type="submit" class="btn btn-primary" (click)="addProduct(model.id)"
+            <button type="submit" class="btn btn-primary"
                 [disabled]="product_data.invalid">Enregistrer le produit</button>
         </form>
     </div>
